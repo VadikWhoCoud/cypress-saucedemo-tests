@@ -1,6 +1,6 @@
 /// <reference types="cypress" />
 
-import { usernameError } from "../Fixtures/errors";
+import { usernameError } from "../fixtures/errors";
 
 
 beforeEach(('Open test application'), () => {

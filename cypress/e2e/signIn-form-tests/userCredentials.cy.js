@@ -1,7 +1,7 @@
 /// <reference types="cypress" />
 
-import { usernameError } from "../Fixtures/errors";
-import { invalidUserForLigIn, userForLogIn, customUserForLogIn } from "../Fixtures/users";
+import { usernameError } from "../fixtures/errors";
+import { invalidUserForLigIn, userForLogIn, customUserForLogIn } from "../fixtures/users";
 
 beforeEach(('Open test application'), () => {
     cy.openPage();
