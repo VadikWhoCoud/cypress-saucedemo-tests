@@ -20,6 +20,11 @@ it('Sign in form without Password', () => {
 })
 
 it('Sign in form without Username and Password', () => {
+    // Expected: button inactive
+    // cy.get('#login-button').should('be.disabled')
+
     cy.get('#login-button').click()
+    // Current error message
     usernameError.usernameRequiredError()
+    
 })

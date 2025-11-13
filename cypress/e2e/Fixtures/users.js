@@ -56,14 +56,13 @@ class InvalidUsers {
 }
 
 class CustomUser {
-
+    // Edit custom User credentials on path: cypress\e2e\SignInFormTests\userCredentials.cy.js
     custom_user_credentials(customUsername, customPassword) {
         cy.get('[placeholder="Username"]').type(customUsername)
         cy.get('[placeholder="Password"]').type(customPassword)
         cy.get('#login-button').click()
 
     }
-
 }
 
 export const customUserForLogIn = new CustomUser();
