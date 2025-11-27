@@ -16,18 +16,48 @@ function addRandomItems(count) {
 
 it('Add 1 random item in cart', () => {
     addRandomItems(1)
-    cy.get('[class="shopping_cart_badge"]').should('have.text', '1')
+    cy.get('.shopping_cart_badge').should('have.text', '1')
+    cy.get('.shopping_cart_link').click()
+    cy.get('.cart_list .cart_item').should('have.length', 1)
 })
 
 it('Add 3 random items in cart', () => {
     addRandomItems(3)
-    cy.get('[class="shopping_cart_badge"]').should('have.text', '3')
+    cy.get('.shopping_cart_badge').should('have.text', '3')
+    cy.get('.shopping_cart_link').click()
+    cy.get('.cart_list .cart_item').should('have.length', 3)
 })
 
 it('Add all items in cart', () => {
     cy.get('.btn_inventory').then(($buttons) => {
         const countItems = $buttons.length
     addRandomItems(countItems)
-    cy.get('[class="shopping_cart_badge"]').should('have.text', String(countItems))
+    cy.get('.shopping_cart_badge').should('have.text', String(countItems))
+    cy.get('.shopping_cart_link').click()
+    cy.get('.cart_list .cart_item').should('have.length', countItems)
+    })
+})
+
+it('Add and remove 1 random item in cart', () => {
+    addRandomItems(1)
+    cy.get('.shopping_cart_badge').should('have.text', '1')
+    cy.get('.shopping_cart_link').click()
+    cy.get('.cart_list .cart_item').should('have.length', 1)
+})
+
+it('Add 3 random items in cart', () => {
+    addRandomItems(3)
+    cy.get('.shopping_cart_badge').should('have.text', '3')
+    cy.get('.shopping_cart_link').click()
+    cy.get('.cart_list .cart_item').should('have.length', 3)
+})
+
+it('Add all items in cart', () => {
+    cy.get('.btn_inventory').then(($buttons) => {
+        const countItems = $buttons.length
+    addRandomItems(countItems)
+    cy.get('.shopping_cart_badge').should('have.text', String(countItems))
+    cy.get('.shopping_cart_link').click()
+    cy.get('.cart_list .cart_item').should('have.length', countItems)
     })
 })
